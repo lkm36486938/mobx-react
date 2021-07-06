@@ -1,0 +1,22 @@
+{
+    "name": "mobx-react",
+    "description": "mobx study",
+    "keywords": [
+        "MOBX",
+        "React without CRA",
+        "TypeScript"
+    ],
+    "author": "ddon-gae",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/lkm36486938/mobx-react"
+    },
+    "version": "1.0.0",
+    "devDependencies": {
+        "@types/jest": "^26.0.23",
+        "@types/node": "^16.0.0",
+        "@types/react": "^17.0.13",
+        "@types/react-dom": "^17.0.8",
+        "typescript": "^4.3.5"
+    }
+}
