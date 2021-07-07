@@ -10,7 +10,8 @@
 CRA로 만든 프로젝트에서 MOBX 를 공부하려하다가 데코레이터 쓰는부분에서 막혀서 <br/>
 CRA없이 React 프로젝트만들기를 해봐야겠다 싶어서 만든 프로젝트임. <br/>
 MOBX 공부도 업로드 <br/>
-README.md 파일의 설정은 초기설정임을 참고.
+README.md 파일의 설정은 초기설정임을 참고. <br/>
+Node 버젼은 12.19.0 버젼에서 실행
 
 ## COMMAND LIST
 ```
@@ -110,3 +111,65 @@ TypeScript를 JavaScript 로 변환하여 미리 컴파일하지 않고도 Node.
 ```
 yarn add ts-node -D
 ```
+
+### LINTING
+자동 lint (소스코드 분석) 해주는 기능을 추가
+1. 설치
+```
+yarn add eslint eslint-plugin-react eslint-plugin-react-hooks @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
+```
+2. 설정파일 생성 (.eslintrc.json) (루트에 생성)
+```
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "react-hooks"
+  ],
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/prop-types": "off"
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    }
+  }
+}
+```
+
+### PRETTIER
+저장 시 자동으로 코드 정렬 기능 지원
+1. 설치
+<br/>
+VSCode Prettier 확장 설치: VSCode 마켓에서 설치해준다.
+```
+yarn add prettier -D
+```
+
+2. 설정파일 생성 (.prettierrc)
+```
+{
+  "printWidth": 120,
+  "tabWidth": 2,
+  "singleQuote": true,
+  "trailingComma": "none",
+  "semi": true
+}
+```
+
+3. 설치 후 확인
+잘 설치되었는지 확인하려면
+설치 후 index.tsx 파일을 켜고 저장을 눌러보면,
+prettier 설정파일 대로 " 로 되어있던 doubleQuote 들이 ' singleQuote 로 자동으로 변환됨으로써 확인이 가능함.
+prettier 설정파일은 본인의 취향대로 설정하거나 협업하는 사람들과 맞춰서 써야함.
